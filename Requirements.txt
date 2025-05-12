@@ -1,0 +1,44 @@
+Features:
+	Start with Welcome Message
+	Present Menu of Options
+	Confirmation Message
+	Add Patient
+	Remove Patient
+	Search Patient
+	Display All Patients
+	Exit
+Add:
+	Will need:
+
+		A Class for patient data
+		Class will capture:
+			Name
+			Age
+			Medical Condition
+		Stored in:
+		Array
+
+Remove:
+	Not found: Failure message
+	Found: Success and delete
+
+Search:
+	Enters name of patient
+	If found: display details
+	Not found: error
+
+Display All:
+	Have records: display all
+	no records: display none.
+
+Exit:
+	Exit system, farewell message
+
+
+How will I approach this:
+
+Create a class with all 4 methods.
+Class will have a array? Like python self.array
+How large must array be? 20 for this example, therefore be able to change using constant
+Call methods in main form.
+	

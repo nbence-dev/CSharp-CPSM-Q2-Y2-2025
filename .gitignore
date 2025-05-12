@@ -1,0 +1,31 @@
+# Build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# User-specific configs
+*.user
+*.suo
+*.vspscc
+*.vssscc
+
+# Debug and logs
+*.log
+*.tmp
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.iml
+
+# NuGet packages
+packages/
+*.nupkg
+project.lock.json
+
+# Visual Studio cache and temp files
+.vs/
+*.vsconfig
+*.VC.db
