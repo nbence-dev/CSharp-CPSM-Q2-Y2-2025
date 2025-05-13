@@ -26,29 +26,24 @@ namespace Question_2
             MedicalCondition = medicalCondition;
         }
 
-        //const int size = 20;
-        private static CPMS[] People = new CPMS[]
-        {
-            new CPMS("John Doe", 45, "Diabetes"),
-            new CPMS("Jane Smith", 32, "Asthma"),
-            new CPMS("Michael Johnson", 50, "Hypertension"),
-            new CPMS("Emily Davis", 27, "Migraine"),
-            new CPMS("Robert Wilson", 60, "Arthritis"),
-            new CPMS("Sophia Martinez", 38, "Heart Disease"),
-            new CPMS("Daniel Brown", 41, "Allergies"),
-            new CPMS("Olivia Taylor", 29, "Depression"),
-            new CPMS("James Anderson", 55, "High Cholesterol"),
-            new CPMS("Emma Thomas", 36, "Anemia")
-        };
+        const int size = 10;
+        private static CPMS[] People = new CPMS[size];
+        
 
+        
         
 
 
         public static void AddPatient()
         {
             // Before administrator is prompted to enter values, first test if there is a open place in array.
-            bool allNull = People.All(element => element == null);
-            if (allNull)
+            int filledSlots = People.Count(element => element != null);
+
+            if (filledSlots >= People.Length)
+            {
+                Console.WriteLine("\nArray is full!\n");
+            }
+            else
             {
                 // Get user info: name, age and medical condition
                 Console.Write("\nEnter the patient's name: ");
@@ -71,16 +66,42 @@ namespace Question_2
                     }
                 }
             }
+            
+
+
+            
+        }
+        public static void AddTenPatients()
+        {
+            string filePath = "10_patients.txt";
+            if (File.Exists(filePath))
+            {
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    string line;
+                    int counter = 0;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] parts = line.Split(',');
+                        if (parts.Length == 3)
+                        {
+                            string name = parts[0].Trim();
+                            int age = int.Parse(parts[1].Trim());
+                            string condition = parts[2].Trim();
+                            People[counter] = new CPMS(name, age, condition);
+                        }
+                        counter++;
+
+                    }
+                }
+            }
             else
             {
-                Console.WriteLine("\nArray full.\n");
+                Console.WriteLine("File not found. Could not instantiate array with 10 people.");
+                
             }
+            
 
-
-            //if (!isPlace)
-            //{
-            //    Console.WriteLine("\nArray is full.\n");
-            //}
         }
         public static void RemovePatient()
         {
@@ -161,7 +182,11 @@ namespace Question_2
                 {
                     foreach (var person in People)
                     {
+                    if (person != null)
+                    {
                         writer.WriteLine($"Name: {person.Name}\nAge: {person.Age}\nMedical condition: {person.MedicalCondition}\n");
+                    }
+                        
                     }
                 }
                 Console.WriteLine($"Patient information printed to file [{filePath}].\n");
@@ -170,6 +195,7 @@ namespace Question_2
 
 
         }
+        
 
 
 

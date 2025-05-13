@@ -10,12 +10,11 @@ namespace Question_2
         {
             // declare array that will display menu.
             string[] menu = { "1. Add Patient", "2. Remove Patient", "3. Search Patient", "4. Display All Patients","5. Print Patient Information to File" ,"6. Exit" };
-
-            //array of objects
-            const int size = 1;  // To easily change the size
-            //CPMS[] People = new CPMS[size];
             
             bool isRunning = true;
+
+            //Instantiate with 10 patients
+            CPMS.AddTenPatients();
             //Run application
             while (isRunning)
             {
