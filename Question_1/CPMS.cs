@@ -151,6 +151,26 @@ namespace Question_2
             }
         }
 
+        public static void SaveToTxt()
+        {
+            //Create and write to file
+            string filePath = @"C:\Users\nicho\OneDrive\Desktop\patient_information.txt"; // Add own filepath.
+            //if (File.Exists(filePath))
+
+            using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (var person in People)
+                    {
+                        writer.WriteLine($"Name: {person.Name}\nAge: {person.Age}\nMedical condition: {person.MedicalCondition}\n");
+                    }
+                }
+                Console.WriteLine($"Patient information printed to file [{filePath}].\n");
+            
+
+
+
+        }
+
 
 
 

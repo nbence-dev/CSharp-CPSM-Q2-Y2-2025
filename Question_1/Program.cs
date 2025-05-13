@@ -76,7 +76,7 @@ namespace Question_2
                             break;
                         case 5:
                             //Prints all array information to a textfile
-                            //CPMS.PrintToFile();
+                            CPMS.SaveToTxt();
                             break;
                         case 6:
                             //Exit program
