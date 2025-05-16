@@ -174,8 +174,10 @@ namespace Question_2
 
         public static void SaveToTxt()
         {
+            //Getting the folder path of the desktop of the current user
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             //Create and write to file
-            string filePath = @"C:\Users\nicho\OneDrive\Desktop\patient_information.txt"; // Add own filepath.
+            string filePath = Path.Combine(desktopPath, "patient_information.txt");
             //if (File.Exists(filePath))
 
             using (StreamWriter writer = new StreamWriter(filePath))
